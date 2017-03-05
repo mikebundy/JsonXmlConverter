@@ -1,5 +1,11 @@
 # JsonXmlConverter
 
+## Running The Project
+
+All code is part of one single solution (.sln). The solution settings have been set such that the console application, the HTML interface, and the web api all start up when the solution is ran. A simple F5 should be all that's needed to run the solution. The only gotcha I foresee is if the localhost port is different for the web api than what the console and HTML application are expecting. These port numbers are set in each project's settings under the web tab, so unless there is a port conflict, everything should start on the correct port for everything to talk to each other.
+
+Once started, the console application will have instructions to upload files on screen. Similarly, the HTML application has a file upload form. Once a file is selected and uploaded, the translation results should be presented to the user automatically below the form.
+
 ## General Architecture
 <i>The JsonXmlConverter consists of four parts (each its own project in the solution):</i>
 
