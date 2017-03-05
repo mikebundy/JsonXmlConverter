@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            //when upload is clicked, clear the previous content
+            $("#uploadFile").click(function () {
+                $("#message").text("");
+            });
+
+            $("#upload").click(function () {
+                var data = new FormData();
+                var file = $("#uploadFile")[0].files[0];
+                data.append("file", file);
+
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:50745/api/JsonXmlConverter/",
+                    enctype: 'multipart/form-data',
+                    contentType: false,
+                    processData: false,
+                    data: data,
+                    success: function (data, textStatus, xhr) {
+                        $("#message").text(xhr.responseText);
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        $("#message").text(textStatus + ", " + errorThrown + ", " + xhr.responseJSON.Message);
+                    }
+                })
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>Select a JSON or XML file to convert...</p>
+    <form method="post" id="uploadForm">
+        <input type="file" value="Choose a file" id="uploadFile" />
+        <br /><br />
+        <input type="button" value="Upload" id="upload" />
+    </form>
+    <p><pre id="message"></pre></p>
+</body>
+</html>

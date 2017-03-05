@@ -1,0 +1,10 @@
+<employee>
+	<fname>Mike</fname>
+	<lname>Bundy</lname>
+	<address>
+		<street>4118 Sheridan Ave. N</street>
+		<city>Minneapolis</city>
+		<state>MN</state>
+		<zip>55412</zip>
+	</address>
+</employee>
